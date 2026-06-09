@@ -1,0 +1,32 @@
+# Projet Machine Learning : Classification et Régression
+
+Ce dépôt contient l'ensemble du code et des ressources nécessaires à l'analyse, au traitement et à la modélisation prédictive d'un jeu de données tabulaire. Le projet est divisé en deux tâches principales d'apprentissage automatique : une classification et une régression.
+
+## Structure du projet
+
+* `Projet_Partie_Classification.ipynb` : Notebook dédié à la prédiction d'une classe (Classification).
+* `Projet_Partie_Regression.ipynb` : Notebook dédié à la prédiction d'une variable continue (Régression).
+* `penguins.csv` : Jeu de données source.
+* (À venir) `Dockerfile` : Configuration pour la conteneurisation de l'environnement d'exécution.
+
+## Prérequis
+
+L'environnement d'exécution requiert Python 3.x et les bibliothèques suivantes :
+* `numpy`
+* `pandas`
+* `scikit-learn`
+* `matplotlib`
+* `seaborn`
+* `xgboost`
+
+## Instructions d'exécution
+
+1.  **Indépendance des scripts :** Les deux notebooks (`Projet_Partie_Classification.ipynb` et `Projet_Partie_Regression.ipynb`) sont strictement indépendants. Ils peuvent être exécutés séparément dans l'ordre de votre choix sans conflit de variables ou d'environnement.
+2.  **Gestion des données :** Le jeu de données est chargé automatiquement lors de l'exécution complète du notebook (commande *Run All*). Les scripts sont conçus pour fonctionner de manière fluide, que la base de données soit téléchargée à la volée ou déjà présente dans le répertoire local lors des exécutions ultérieures.
+
+## Pratiques MLOps
+
+Ce projet intègre des concepts MLOps standards :
+* **Optimisation systématisée :** Ajustement des hyperparamètres via `GridSearchCV` et validation croisée.
+* **Export des modèles :** Les modèles optimaux sont sérialisés et sauvegardés en tant qu'artefacts prêts pour l'inférence.
+* **Environnement conteneurisé :** (En cours d'intégration) Un environnement Docker est mis en place pour garantir la reproductibilité du code sur n'importe quelle machine.
