@@ -1,0 +1,25 @@
+name: Pipeline MLOps - Validation des Modèles
+
+# Déclenchement automatique à chaque 'push' sur la branche principale
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Récupération du code source
+        uses: actions/checkout@v4
+
+      - name: 2. Construction de l'image Docker
+        run: docker build -t projet-mlops .
+
+      - name: 3. Exécution du pipeline de Régression (Headless)
+        # jupyter nbconvert exécute le notebook sans interface graphique
+        run: docker run projet-mlops jupyter nbconvert --to notebook --execute Projet_Partie_Regression.ipynb
+
+      - name: 4. Exécution du pipeline de Classification (Headless)
+        run: docker run projet-mlops jupyter nbconvert --to notebook --execute Projet_Partie_Classification.ipynb
